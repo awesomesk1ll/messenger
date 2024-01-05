@@ -1,0 +1,33 @@
+---
+export interface Props {
+    userName: string;
+    avatar: string;
+}
+
+const { 
+    userName = 'Иванов Иван',
+    avatar = 'https://i.pravatar.cc/150',
+} = Astro.props;
+
+---
+
+<div class="message__list-header">
+    <div class="avatar">
+        <img src={avatar} alt={`Аватар пользователя ${userName}`}>
+    </div>
+    <div class="nickname">
+        {userName}
+    </div>
+    <div class="delete-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="21" viewBox="0 0 17 21" fill="none">
+            <path d="M6.375 0L5.3125 1.05H0V3.15H1.0625V18.9C1.0625 19.4483 1.26579 20.0073 1.66638 20.4032C2.06698 20.7991 2.63264 21 3.1875 21H13.8125C14.3674 21 14.933 20.7991 15.3336 20.4032C15.7342 20.0073 15.9375 19.4483 15.9375 18.9V3.15H17V1.05H11.6875L10.625 0H6.375ZM3.1875 3.15H13.8125V18.9H3.1875V3.15ZM5.3125 5.25V16.8H7.4375V5.25H5.3125ZM9.5625 5.25V16.8H11.6875V5.25H9.5625Z" fill="#A80B0B"/>
+        </svg>
+    </div>
+    <div class="options-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="3" height="16" viewBox="0 0 3 16" fill="none">
+            <circle cx="1.5" cy="2" r="1.5" fill="#1E1E1E"/>
+            <circle cx="1.5" cy="8" r="1.5" fill="#1E1E1E"/>
+            <circle cx="1.5" cy="14" r="1.5" fill="#1E1E1E"/>
+        </svg>
+    </div>
+</div>

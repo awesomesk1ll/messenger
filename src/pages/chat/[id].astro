@@ -1,0 +1,36 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ChatList from '../../components/ChatList/ChatList.astro';
+import MessageList from '../../components/MessageList/MessageList.astro';
+
+import { chatListDataMock as chats } from '../../mocks/sample.json';
+import { prepareAllChats } from '../../utils/chatsPreparation';
+
+const preparedChats = prepareAllChats(chats);
+
+export async function getStaticPaths() {
+    return prepareAllChats(chats).map(chat => ({
+        params: {
+            id: chat?.id,
+        },
+        props: {
+            chat,
+            selectedChatId: chat?.id,
+        },
+    }));
+};
+
+const { selectedChatId, chat } = Astro.props;
+
+---
+
+<Layout title={`Чат | ${ chat.userName }`}>
+	<main class="chat-page">
+        <div class="list-container">
+            <ChatList chats={preparedChats} activeChatId={selectedChatId} />
+        </div>
+        <div class="chat-container">
+            <MessageList {...chat} />
+        </div>
+    </main>
+</Layout>

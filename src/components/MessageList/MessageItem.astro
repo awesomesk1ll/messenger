@@ -1,0 +1,42 @@
+---
+import classNames from "classnames";
+import { extractTimeString } from "../../utils";
+
+export interface Props {
+    dateTime: string;
+    type: 'in' | 'out' | 'system'; // system - plan for use in future + need smth for content type (image/video, file, text)
+    chatId?: string;
+    className?: string;
+    text?: string;
+    media?: string;
+}
+
+const { 
+    chatId = '1',
+    className = '2',
+    dateTime,
+    type,
+    text = '',
+    media = ''
+} = Astro.props;
+
+const messageTime = dateTime ? extractTimeString(dateTime) : null;
+const mDate = dateTime ? new Date(dateTime) : null;
+const mDateStr = mDate ? `${mDate.toLocaleDateString()} ${mDate.toLocaleTimeString()}` : null;
+
+---
+
+<div class={classNames('message-item', className)}>
+    { text }
+    { !!media && <img class="message-media" src={media} /> }
+    { !!messageTime &&
+        <span>
+            <span class="time-code-space-filler">
+                { messageTime }
+            </span>
+            <span class="time-code" title={mDateStr}>
+                { messageTime }
+            </span>
+        </span>
+    }
+</div>

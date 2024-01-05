@@ -1,0 +1,35 @@
+---
+import classNames from "classnames";
+import './Button.pcss';
+
+export interface Props {
+    id?: string;
+    type?: "button" | "submit" | "reset";
+    className?: string;
+    href?: string;
+    label?: string;
+}
+
+const { 
+    id = 'button',
+    type = 'button',
+    className = 'btn-primary',
+    label = 'Button',
+    href = '',
+} = Astro.props;
+
+---
+
+<>
+    {
+        !href && <button id={id} type={type} class={classNames(className, 'button')}>
+            {label}
+        </button>
+    }
+    {
+        !!href && <a href={href} id={id} class={classNames(className, 'link')}>
+            {label}
+        </a>
+    }
+</>
+

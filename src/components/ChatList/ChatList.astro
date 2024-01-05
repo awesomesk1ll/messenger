@@ -1,0 +1,35 @@
+---
+import Input from "../Input/Input.astro";
+import Button from "../Button/Button.astro";
+import ChatItem, { Props as ChatProps } from "./ChatItem.astro";
+import './ChatList.pcss';
+
+export interface Props {
+    chats?: ChatProps[];
+    activeChatId?: string;
+}
+
+const { 
+    chats = [],
+    activeChatId = ''
+} = Astro.props;
+
+---
+
+<div class="chat__list">
+    <div class="controls">
+        <div class="profile">
+            <Button href="/profile" label="Профиль" />
+            <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 9L5 5L1 1" stroke="#999999"/>
+            </svg>
+        </div>
+        <Input placeholder="Поиск" label="" type="search" labelClass="search" />
+    </div>
+    <div class="chats-list">
+        {chats.map((chat) => (
+            <hr class="divider" />
+            <ChatItem {...chat} className={chat.chatId === activeChatId ? 'active' : ''} />
+        ))}
+    </div>
+</div>

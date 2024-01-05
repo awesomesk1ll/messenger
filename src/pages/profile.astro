@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProfileForm from '../components/ProfileForm/ProfileForm.astro';
+import ProfileBack from '../components/ProfileForm/ProfileBack.astro';
+
+import { profileDataMock as profile } from '../mocks/sample.json';
+const { email, login, first_name, second_name, display_name, phone } = profile;
+
+const formItems = [
+    {
+        id: 'email',
+        name:'email',
+        label: email.label,
+        labelClass: 'profile-form__label',
+        readonly: true,
+        placeholder: 'Почта',
+        type: 'email' as astroHTML.JSX.HTMLInputTypeAttribute,
+        errorMessage: 'Некорректная почта',
+        value: email.value,
+    },
+    {
+        id: 'login',
+        name:'login',
+        label: login.label,
+        labelClass: 'profile-form__label',
+        readonly: true,
+        placeholder: 'Логин',
+        type: 'text' as astroHTML.JSX.HTMLInputTypeAttribute,
+        errorMessage: 'Некорректный логин',
+        value: login.value,
+    },
+    {
+        id: 'first_name',
+        name:'first_name',
+        label: first_name.label,
+        labelClass: 'profile-form__label',
+        readonly: true,
+        placeholder: 'Имя',
+        type: 'text' as astroHTML.JSX.HTMLInputTypeAttribute,
+        errorMessage: 'Некорректное имя',
+        value: first_name.value,
+    },
+    {
+        id: 'second_name',
+        name:'second_name',
+        label: second_name.label,
+        labelClass: 'profile-form__label',
+        readonly: true,
+        placeholder: 'Фамилия',
+        type: 'text' as astroHTML.JSX.HTMLInputTypeAttribute,
+        errorMessage: 'Некорректная фамилия',
+        value: second_name.value,
+    },
+    {
+        id: 'display_name',
+        name:'display_name',
+        label: display_name.label,
+        labelClass: 'profile-form__label',
+        placeholder: 'Имя в чате',
+        readonly: true,
+        type: 'text' as astroHTML.JSX.HTMLInputTypeAttribute,
+        errorMessage: 'Некорректное имя в чате',
+        value: display_name.value,
+    },
+    {
+        id: 'phone',
+        name:'phone',
+        label: phone.label,
+        labelClass: 'profile-form__label',
+        placeholder: 'Телефон',
+        readonly: true,
+        type: 'tel' as astroHTML.JSX.HTMLInputTypeAttribute,
+        errorMessage: 'Некорректный телефон',
+        value: phone.value,
+    }
+];
+
+const formButtons = [
+    {
+        href: '/profile-edit',
+        label: 'Изменить данные',
+        className: 'profile-form__link'
+    },
+    {
+        href: '/profile-edit-password',
+        label: 'Изменить пароль',
+        className: 'profile-form__link'
+    },
+    {
+        href: '/auth',
+        label: 'Выйти',
+        className: 'profile-form__exit'
+    }
+];
+
+---
+
+<Layout title="Чат | Профиль">
+    <main class="profile-page">
+        <ProfileBack />
+        <ProfileForm profile={profile} formItems={formItems} formButtons={formButtons} />
+    </main>
+</Layout>

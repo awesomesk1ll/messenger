@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ChatList from '../components/ChatList/ChatList.astro';
+
+import { chatListDataMock as chats } from '../mocks/sample.json';
+import { prepareAllChats } from '../utils/chatsPreparation';
+
+const preparedChats = prepareAllChats(chats);
+
+---
+
+<Layout title="Чат | Список переписок">
+	<main class="chat-page">
+        <div class="list-container">
+            <ChatList chats={preparedChats} />
+        </div>
+        <div class="chat-container chat-container_empty">
+            <div>Выберите чат чтобы отправить сообщение</div>
+        </div>
+    </main>
+</Layout>

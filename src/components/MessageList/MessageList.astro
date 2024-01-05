@@ -1,0 +1,37 @@
+---
+import classNames from "classnames";
+
+import MessageListHeader from "./MessageListHeader.astro";
+import MessageListFooter from "./MessageListFooter.astro";
+import MessageItem, { Props as MessageProps } from "./MessageItem.astro";
+import './MessageList.pcss';
+
+export interface Props {
+    messages: MessageProps[];
+    chatId: string;
+    userName: string;
+    avatar: string;
+}
+
+const { 
+    chatId = '1',
+    userName = 'Иванов Иван',
+    avatar = 'https://i.pravatar.cc/150',
+    messages = [],
+} = Astro.props;
+
+const ava = avatar || `https://i.pravatar.cc/47?u=${chatId}`;
+
+---
+
+<div class="message__list">
+    <MessageListHeader userName={userName} avatar={ava} />
+    <hr class="divider" />
+    <div class="messages-list">
+        {messages.map((message) => (
+            <MessageItem {...message} className={classNames({ [message.type]: true })} />
+        ))}
+    </div>
+    <hr class="divider" />
+    <MessageListFooter />
+</div>

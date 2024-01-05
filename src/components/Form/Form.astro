@@ -1,0 +1,32 @@
+---
+import classNames from "classnames";
+import Input, { Props as InputProps } from "../Input/Input.astro";
+import Button, { Props as ButtonProps } from "../Button/Button.astro";
+import './Form.pcss';
+
+export interface Props {
+    formItems?: InputProps[];
+    formButtons?: ButtonProps[];
+    id?: string;
+    className?: string;
+    formTitle?: string;
+}
+
+const { 
+    formItems = [],
+    formButtons = [],
+    id = 'form',
+    className = 'form',
+    formTitle = 'Form title',
+} = Astro.props;
+---
+
+<form id={id} class={classNames(className, 'app__form')}>
+    <h2 class="form__title">{formTitle}</h2>
+    <div class="form__items">
+        {formItems.map((item) => (<Input {...item} />))}
+    </div>
+    { !!formButtons?.length && <div class="form__buttons">
+        {formButtons.map((button) => (<Button {...button} />))}
+    </div> }
+</form>

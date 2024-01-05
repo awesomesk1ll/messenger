@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const commitHash = `Версия (хэш): ${__COMMIT_HASH__}`;
+const bDate = new Date(__BUILD_DATE__);
+const buildDate = `Сборка (дата и время): ${bDate.toLocaleDateString()} ${bDate.toLocaleTimeString()}`;
+
+---
+
+<Layout title="Чат | Информация о сборке">
+	<main class="error-page">
+        <div class="container">
+            <span class="error-page__title">Информация о сборке</span>            
+            <p class="error-page__text">{ buildDate }</p>
+            <p class="error-page__text">{ commitHash }</p>
+        </div>
+    </main>
+</Layout>
