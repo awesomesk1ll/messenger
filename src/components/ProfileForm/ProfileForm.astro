@@ -1,0 +1,67 @@
+---
+import classNames from "classnames";
+import Form from "../Form/Form.astro";
+import { Props as InputProps } from "../Input/Input.astro";
+import { Props as ButtonProps } from "../Button/Button.astro";
+import './ProfileForm.pcss';
+
+
+export interface Props {
+    formItems?: InputProps[];
+    formButtons?: ButtonProps[];
+    profile: {
+        avatar: {
+            label: string;
+            value: string;
+        };
+        email: {
+            label: string;
+            value: string;
+        };
+        login: {
+            label: string;
+            value: string;
+        };
+        first_name: {
+            label: string;
+            value: string;
+        };
+        second_name: {
+            label: string;
+            value: string;
+        };
+        display_name: {
+            label: string;
+            value: string;
+        };
+        phone: {
+            label: string;
+            value: string;
+        };
+    };
+    editable?: boolean;
+    showTitle?: boolean;
+    className?: string;
+    formTitle?: string;
+}
+
+const { 
+    formItems = [],
+    formButtons = [],
+    className = 'form',
+    editable = false,
+    showTitle = true,
+    profile,
+} = Astro.props;
+
+---
+
+<div class={classNames(className, 'profile__form')}>
+    <div class="profile-content">
+        <div class="profile-avatar">
+            <div class={classNames('profile-avatar-change', { 'changeable': editable })}>Поменять аватар</div>
+            <img src={profile.avatar.value} alt="avatar">
+        </div>
+        <Form formItems={formItems} formButtons={formButtons} formTitle={showTitle ? profile.display_name.value : ''} />
+    </div>
+</div>

@@ -1,0 +1,94 @@
+.profile__form {
+    width: calc(100vw - 64px);
+    padding-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+
+    .profile-form__link {
+        height: 20px;
+        text-align: left;
+        border-bottom: 1px solid var(--divider-color);
+        cursor: pointer;
+    }
+
+    .profile-form__exit {
+        height: 20px;
+        text-align: left;
+        cursor: pointer;
+        color: #FF0000;
+    }
+
+    form.app__form {
+        padding: 0;
+        width: 510px;
+        span.textLabel {
+            visibility: visible;
+        }
+        label.profile-form__label {
+            height: 34px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--divider-color);
+
+            span.textLabel {
+                color: #1E1E1E;
+                font-family: Inter;
+                font-size: 13px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 13px; /* 100% */
+            }
+
+            input {
+                border-bottom: none;
+                text-align: right;
+                disabled: true;
+            }
+
+            span.error {
+                display: none;
+            }
+        }
+    }
+
+    .profile-content {
+        width: 510px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .profile-avatar img {
+            border-radius: 50%;
+        }
+
+        .profile-avatar-change {
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            display: flex;
+            opacity: 0;
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            word-break: break-word;
+        }
+
+        .profile-avatar-change.changeable {
+            cursor: pointer;
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+
+    /* &:not(.editable) {
+        
+    } */
+}

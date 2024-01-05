@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Form from '../components/Form/Form.astro';
+
+const formItems = [
+    {
+        id: 'login',
+        name:'login',
+        label: 'Логин',
+        placeholder: 'Логин',
+        type: 'text' as astroHTML.JSX.HTMLInputTypeAttribute,
+        errorMessage: 'Некорректный логин',
+    },
+    {
+        id: 'password',
+        name:'password',
+        label: 'Пароль',
+        placeholder: 'Пароль',
+        type: 'password' as astroHTML.JSX.HTMLInputTypeAttribute,
+        errorMessage: 'Некорректный пароль',
+    },
+];
+
+const formButtons = [
+    {
+        label: 'Авторизоваться'
+    },
+    {
+        href: '/reg',
+        label: 'Нет аккаунта?'
+    }
+];
+
+---
+
+<Layout title="Чат | Страница входа" layout="modal">
+	<main class="auth-page">
+        <div class="container">
+            <Form formItems={formItems} formButtons={formButtons} formTitle="Вход" />
+        </div>
+    </main>
+</Layout>

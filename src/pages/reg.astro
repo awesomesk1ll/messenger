@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Form from '../components/Form/Form.astro';
+
+const formItems = [
+    {
+        id: 'email',
+        name:'email',
+        label: 'Почта',
+        placeholder: 'Почта',
+        type: 'email' as astroHTML.JSX.HTMLInputTypeAttribute,
+        errorMessage: 'Некорректная почта'
+    },
+    {
+        id: 'login',
+        name:'login',
+        label: 'Логин',
+        placeholder: 'Логин',
+        type: 'text' as astroHTML.JSX.HTMLInputTypeAttribute,
+        errorMessage: 'Некорректный логин'
+    },
+    {
+        id: 'first_name',
+        name:'first_name',
+        label: 'Имя',
+        placeholder: 'Имя',
+        type: 'text' as astroHTML.JSX.HTMLInputTypeAttribute,
+        errorMessage: 'Некорректное имя'
+    },
+    {
+        id: 'second_name',
+        name:'second_name',
+        label: 'Фамилия',
+        placeholder: 'Фамилия',
+        type: 'text' as astroHTML.JSX.HTMLInputTypeAttribute,
+        errorMessage: 'Некорректная фамилия'
+    },
+    {
+        id: 'phone',
+        name:'phone',
+        label: 'Телефон',
+        placeholder: 'Телефон',
+        type: 'tel' as astroHTML.JSX.HTMLInputTypeAttribute,
+        errorMessage: 'Некорректный телефон'
+    },
+    {
+        label: 'Пароль',
+        name: 'password',
+        placeholder: 'Пароль',
+        type: 'password' as astroHTML.JSX.HTMLInputTypeAttribute,
+        errorMessage: 'Некорректный пароль'
+    },
+    {
+        label: 'Пароль (ещё раз)',
+        placeholder: 'Пароль',
+        type: 'password' as astroHTML.JSX.HTMLInputTypeAttribute,
+        errorMessage: 'Пароли не совпадают'
+    },
+];
+
+const formButtons = [
+    {
+        label: 'Зарегистрироваться'
+    },
+    {
+        href: '/auth',
+        label: 'Войти'
+    }
+];
+
+---
+
+<Layout title="Чат | Страница регистрации" layout="modal">
+	<main class="reg-page">
+        <div class="container">
+            <Form formItems={formItems} formButtons={formButtons} formTitle="Регистрация" />
+        </div>
+    </main>
+</Layout>

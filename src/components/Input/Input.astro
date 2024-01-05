@@ -1,0 +1,40 @@
+---
+import classNames from 'classnames'
+import './Input.pcss'
+
+export interface Props {
+    label?: string;
+    error?: string;
+    labelId?: string;
+    labelClass?: string;
+    id?: string;
+    type?: astroHTML.JSX.HTMLInputTypeAttribute;
+    className?: string;
+    name?: string;
+    readonly?: boolean;
+    defaultValue?: string;
+    placeholder?: string;
+}
+
+const { 
+    label = '',
+    error = '',
+    labelId = 'labelId',
+    labelClass = 'labelClass',
+    id = 'id',
+    type = 'text',
+    className = 'className',
+    name = 'name',
+    readonly = false,
+    defaultValue,
+    placeholder = 'placeholder',
+} = Astro.props;
+
+---
+
+<label id={labelId} for="" class={classNames(labelClass, 'form__input')}>
+    <span class={classNames('textLabel', { 'visible': !!label })}>{label}</span>
+    <input id={id} class={className} name={name} type={type} placeholder={placeholder}
+         value={defaultValue} disabled={readonly}>
+    <span class="error">{error}</span>
+</label>

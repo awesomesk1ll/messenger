@@ -1,0 +1,55 @@
+---
+import classNames from "classnames";
+import { compressText, extractTimeString } from "../../utils";
+
+export interface Props {
+    chatId?: string;
+    className?: string;
+    avatar?: string;
+    userName?: string;
+    lastMessage: {
+        dateTime: string;
+        text: string;
+        type?: string;
+    };
+    newMessagesCount?: number;
+}
+
+const { 
+    chatId = '1',
+    className = '2',
+    avatar = 'https://i.pravatar.cc/150',
+    userName = '',
+    lastMessage: {
+        dateTime: lastMessageDateTime = '',
+        text: lastMessageText = '',
+        type: lastMessageType = '',
+    } = {},
+    newMessagesCount = 0,
+} = Astro.props;
+
+const ava = avatar || `https://i.pravatar.cc/47?u=${chatId}`;
+
+const messageText = compressText(lastMessageText, 43);
+const messageTime = lastMessageDateTime ? extractTimeString(lastMessageDateTime) : null;
+
+---
+
+<div class={classNames('chat-item', className)} data-chat-id={chatId} onclick={`javascript:window.location = "/chat/${chatId}"`}>
+    <div class="avatar">
+        <img src={ava} alt={`Аватар пользователя ${userName}`}>
+    </div>
+    <div class="nickname">
+        {userName}
+    </div>
+    <div class="last_message_time">
+        { messageTime }
+    </div>
+    <div class="last_message">
+        { lastMessageType === 'out' ? <span>Вы: </span> : null }
+        { messageText }
+    </div>
+    <div class="new_message_count">
+        { !!newMessagesCount ? <div>{newMessagesCount}</div> : null }
+    </div>
+</div>
