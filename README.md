@@ -23,15 +23,15 @@ https://awesomesk1ll-messenger-s1.netlify.app/ (1 спринт)
 
 #### На текущем этапе разработки (спринт №1) реализовано:
 
-* Настроена сборка статики с использованием [Astro](https://astro.build)
+* Настроена сборка статики с использованием в качестве шаблонизатора [Astro](https://astro.build){:target="_blank"}
 * Настроен процессинг для стилей PostCSS
 * Свёрстаны прототипы экранов: 
-- Авторизация ([тык](https://awesomesk1ll-messenger-s1.netlify.app/auth))
-- Регистрация ([тык](https://awesomesk1ll-messenger-s1.netlify.app/reg))
+- Авторизация ([тык](https://awesomesk1ll-messenger-s1.netlify.app/auth){:target="_blank"})
+- Регистрация ([тык](https://awesomesk1ll-messenger-s1.netlify.app/reg){:target="_blank"})
 - Ошибки 404 и 500 ([тык](https://awesomesk1ll-messenger-s1.netlify.app/404) и [тык](https://awesomesk1ll-messenger-s1.netlify.app/500))
 - Чаты ([тык](https://awesomesk1ll-messenger-s1.netlify.app/chat/))
 - Профиль ([тык](https://awesomesk1ll-messenger-s1.netlify.app/profile))
-- Для проверки даты/вреемени сборки и коммита ([тык](https://awesomesk1ll-messenger-s1.netlify.app/version))
+* Для проверки даты/вреемени сборки и коммита сделал страничку ([тык](https://awesomesk1ll-messenger-s1.netlify.app/version))
 * Прикручен деплой из ветки на Netlify
 * Прикручена сборка статики и раздача через Express
 
