@@ -23,11 +23,11 @@ https://awesomesk1ll-messenger-s1.netlify.app/ (1 спринт)
 
 #### На текущем этапе разработки (спринт №1) реализовано:
 
-* Настроена сборка статики с использованием в качестве шаблонизатора [Astro](https://astro.build){:target="_blank"}
+* Настроена сборка статики с использованием в качестве шаблонизатора [Astro](https://astro.build)
 * Настроен процессинг для стилей PostCSS
 * Свёрстаны прототипы экранов: 
-- Авторизация ([тык](https://awesomesk1ll-messenger-s1.netlify.app/auth){:target="_blank"})
-- Регистрация ([тык](https://awesomesk1ll-messenger-s1.netlify.app/reg){:target="_blank"})
+- Авторизация ([тык](https://awesomesk1ll-messenger-s1.netlify.app/auth))
+- Регистрация ([тык](https://awesomesk1ll-messenger-s1.netlify.app/reg))
 - Ошибки 404 и 500 ([тык](https://awesomesk1ll-messenger-s1.netlify.app/404) и [тык](https://awesomesk1ll-messenger-s1.netlify.app/500))
 - Чаты ([тык](https://awesomesk1ll-messenger-s1.netlify.app/chat/))
 - Профиль ([тык](https://awesomesk1ll-messenger-s1.netlify.app/profile))
